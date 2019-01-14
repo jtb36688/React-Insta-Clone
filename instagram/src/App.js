@@ -5,7 +5,17 @@ import './App.css';
 import SmartData from './smart-data.js'
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
 // comments is an array of objects with keys: username, text
-console.log(SmartData);
+
+// username:
+// thumbnailUrl:
+// imageUrl:
+// likes:
+// timestamp:
+// comments: [...
+// {username:
+// text:
+// }]
+
 
 class App extends Component {
   constructor() {
