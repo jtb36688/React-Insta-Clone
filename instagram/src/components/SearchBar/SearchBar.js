@@ -9,7 +9,7 @@ function SearchBar() {
         
         type="text"
         name="titlevalue"
-        placeholder="Todo Title"
+        placeholder="Search Posts.."
         
       />
       </form>
