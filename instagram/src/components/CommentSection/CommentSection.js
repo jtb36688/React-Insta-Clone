@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./CommentSection.css";
 
 function CommentSection(props) {
   return (
-    <ul>
+    <ul className="CommentsList">
       {props.commentsarray.map(({ username, text }, index) => (
-        <li key={index}>
-          <h5>{username}</h5>
-          <p>{text}</p>
+        <li className="SingleComment" key={index}>
+          <p>
+            <span className="Username">{username} </span>
+            {text}
+          </p>
         </li>
       ))}
     </ul>
@@ -15,12 +18,12 @@ function CommentSection(props) {
 }
 
 CommentSection.propTypes = {
-    commentsarray: PropTypes.arrayOf(
-        PropTypes.shape({
-            username: PropTypes.string,
-            text: PropTypes.string,
-        })
-    )
-}
+  commentsarray: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string,
+      text: PropTypes.string
+    })
+  )
+};
 
 export default CommentSection;

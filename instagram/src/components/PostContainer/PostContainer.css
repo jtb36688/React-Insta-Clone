@@ -1,0 +1,61 @@
+.OuterPostContainer {
+margin-top: 50px;
+}
+
+.WholePost {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    border: 1px solid silver;
+    margin-top: 50px;
+}
+
+
+.Avatar_Username {
+display: flex;
+align-items: center;
+padding: 10px 0;
+}
+
+.Avatar {
+    
+    margin: 0 3%;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+    height: 40px;
+}
+
+.Username {
+font-weight: bold;
+}
+
+.PostImage {
+width: 100%;
+}
+
+.MomentDate {
+    color: grey;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+.Heart_Comment_Likes {
+
+}
+
+.Input_Elipsis {
+    
+}
+
+.CommentsForm {
+    margin-top: 10px;
+}
+
+.CommentsInput {
+    width: 100%;
+    height: 50px;
+    
+}

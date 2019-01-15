@@ -1,0 +1,32 @@
+.WholeSearchBar {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+border-bottom: 1px solid lightgrey;
+}
+
+.Camera_InstaLogo {
+display: flex;
+width: 18%;
+justify-content: space-between;
+align-items: baseline;
+font-size: 25px;
+width: 22%;
+margin: 10px 0;
+}
+
+.SearchInput {
+    text-align: center;
+}
+
+.Compass_Heart_User {
+display: flex;
+width: 17%;
+justify-content: space-between;
+}
+
+.InstagramLogo {
+    padding-left: 10px;
+    height: 30px;
+    border-left: 1px solid black;
+}

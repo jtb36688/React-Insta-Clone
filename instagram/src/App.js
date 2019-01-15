@@ -3,6 +3,9 @@ import PostContainer from './components/PostContainer/PostContainer.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
 import './App.css';
 import SmartData from './smart-data.js'
+import moment from "moment";
+import "datejs";
+
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
 // comments is an array of objects with keys: username, text
 
@@ -26,13 +29,19 @@ class App extends Component {
   };
   }
 
+  formatdate = (date) => {
+    // return moment(Date.parse(date).toString()).fromNow()
+    const a = moment([2017, 6, 15])
+    return a.from(Date.parse(date).toString()).toUpperCase();
+      }
 
   render() {
     return (
       <div>
       <SearchBar />
       <PostContainer
-      postsarray = {this.state.socialdata} 
+      postsarray = {this.state.socialdata}
+      formatdate = {this.formatdate}
       />
       </div>
     );
