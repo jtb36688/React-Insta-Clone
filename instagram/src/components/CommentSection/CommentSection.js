@@ -7,7 +7,7 @@ class CommentSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: props.commentsarray,
+      comments: [],
       newcomment: ""
     };
   }
@@ -16,11 +16,11 @@ class CommentSection extends Component {
   componentDidMount() {
     if (localStorage.getItem(this.props.momentdate)) {
       this.setState({
-        postsarray: JSON.parse(localStorage.getItem(this.props.momentdate))
+        comments: JSON.parse(localStorage.getItem(this.props.momentdate))
       });
     } else {
       this.setState({
-        postsarray: this.props.commentsarray
+        comments: this.props.commentsarray
       });
     }
   }
@@ -28,7 +28,7 @@ class CommentSection extends Component {
   componentDidUpdate() {
     localStorage.setItem(
       this.props.momentdate,
-      JSON.stringify(this.state.postsarray)
+      JSON.stringify(this.state.comments)
       );
     }
     
