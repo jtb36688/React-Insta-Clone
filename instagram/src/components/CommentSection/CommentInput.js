@@ -4,9 +4,9 @@ import "./CommentSection.css";
 function CommentInput(props) {
   return (
     <div className="Input_Elipsis">
-      <form className="CommentsForm" onSubmit={(e) => props.commentSubmit(`${props.postIndex}`)}>
+      <form className="CommentsForm" onSubmit={(e) => props.commentSubmit()}>
         <input
-          value={props.newComment}
+          value={props.newcomment}
           className="CommentsInput"
           type="text"
           name="newcomment"

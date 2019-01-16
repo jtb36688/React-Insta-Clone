@@ -29,9 +29,6 @@ function PostContainer(props) {
             <p className='LikesText'>{post.likes} likes</p>
             <CommentSection commentsarray={post.comments}
             momentdate={props.formatdate(`${post.timestamp}`)}
-            newComment={props.newComment}
-            onChange={props.handleChangesComment}
-            commentSubmit={props.commentSubmit}
             postindex={index} />
           </div>
         </div>

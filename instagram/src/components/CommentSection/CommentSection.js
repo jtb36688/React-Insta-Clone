@@ -3,34 +3,46 @@ import PropTypes from "prop-types";
 import CommentInput from "./CommentInput.js";
 import "./CommentSection.css";
 
+// Hiarchy----
+
+// App.js=>
+
+// PostContainer.js =>
+
+// CommentSection.js =>
+
+// CommentInput.js =>
+
 class CommentSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
       commentsarray: props.commentsarray,
-      newcomment: ''
+      newcomment: ""
     };
   }
 
+  addNewComment = e => {
+    e.preventDefault();
+    if (this.state.newcomment === "") {
+      return;
+    } else {
+      this.setState({
+        commentsarray: [
+          ...this.state.commentsarray,
+          {
+            username: 'JTB',
+            text: this.state.newcomment
+          }
+        ],
+        newcomment: ''
+      });
+    }
+  };
 
-//   addNewComment = (e, Postindex) => {
-//     e.preventDefault();
-//     if (this.state.newcomment === "") {
-//       return;
-//   } else {
-//     this.setState(currentState => ({
-//       commentsarray: currentState.commentsarray.concat(
-//         {
-//           username: 'JTB',
-//           text: currentState.newcomment
-//         }
-//       )
-//     })
-//       )
-//   this.setState({
-//     newcomment: '',
-//   })
-// }
+  handleChangesComment = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   render() {
     return (
@@ -46,9 +58,14 @@ class CommentSection extends Component {
           ))}
         </ul>
         <p className="MomentDate">{this.props.momentdate}</p>
-        <CommentInput postIndex={this.props.postIndex} newComment={this.props.newComment} onChange={this.props.onChange} postindex={this.props.postindex} commentSubmit={this.props.commentSubmit}/>
+        <CommentInput
+          newcomment={this.state.newcomment}
+          onChange={this.handleChangesComment}
+          postindex={this.props.postindex}
+          commentSubmit={this.addNewComment}
+        />
       </div>
-    )
+    );
   }
 }
 

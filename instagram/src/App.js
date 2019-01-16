@@ -24,7 +24,6 @@ class App extends Component {
     super(props);
     this.state = {
       socialdata: [],
-      newcomment: ''
     };
   }
 
@@ -41,9 +40,7 @@ class App extends Component {
       .toString()).toUpperCase();
   };
 
-  handleChangesComment = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-};
+  
 
 
   render() {
@@ -51,11 +48,8 @@ class App extends Component {
       <div>
         <SearchBar />
         <PostContainer
-          commentSubmit={this.addNewComment}
           postsarray={this.state.socialdata}
           formatdate={this.formatdate}
-          newComment={this.state.newcomment}
-          handleChangesComment={this.handleChangesComment}
         />
       </div>
     );
