@@ -7,38 +7,39 @@ class CommentSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postsarray: props.postsarray,
+      comments: props.commentsarray,
       newcomment: ""
     };
   }
 
   
-  // componentDidMount() {
-  //   if (localStorage.getItem(this.props.momentdate)) {
-  //     this.setState({
-  //       postsarray: JSON.parse(localStorage.getItem(this.props.momentdate))
-  //     });
-  //   } else {
-  //     this.setState({
-  //       postsarray: this.props.postsarray
-  //     });
-  //   }
-  // }
+  componentDidMount() {
+    if (localStorage.getItem(this.props.momentdate)) {
+      this.setState({
+        postsarray: JSON.parse(localStorage.getItem(this.props.momentdate))
+      });
+    } else {
+      this.setState({
+        postsarray: this.props.commentsarray
+      });
+    }
+  }
   
-  // componentDidUpdate() {
-  //   localStorage.setItem(
-  //     this.props.momentdate,
-  //     JSON.stringify(this.state.postsarray)
-  //     );
-  //   }
+  componentDidUpdate() {
+    localStorage.setItem(
+      this.props.momentdate,
+      JSON.stringify(this.state.postsarray)
+      );
+    }
     
+
     addNewComment = (e, index) => {
       e.preventDefault();
       this.setState(currentState => {
         return {
-        postsarray: currentState.postsarray.slice()[index].comments.push({
+        comments: currentState.comments.concat({
           username: "JTB",
-          text: this.state.newcomment
+          text: currentState.newcomment
         }),
         newcomment: ""
         }
@@ -53,7 +54,7 @@ class CommentSection extends Component {
     return (
       <div>
         <ul className="CommentsList">
-          {this.props.commentsarray.map(({ username, text }, commentindex) => (
+          {this.state.comments.map(({ username, text }, commentindex) => (
             <li className="SingleComment" key={commentindex}>
               <p>
                 <span className="Username">{username} </span>

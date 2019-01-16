@@ -9,7 +9,6 @@ const PostsContainer = props => {
         <Post
           postsarray={props.postsarray}
           key={post.imageUrl}
-          id={post.imageUrl}
           postindex={index}
           formatdate={props.formatdate}
           post={post}

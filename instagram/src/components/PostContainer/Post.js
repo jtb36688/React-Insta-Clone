@@ -55,7 +55,7 @@ class Post extends React.Component {
             {this.state.likes} likes
           </button>
           <CommentSection
-            id={this.props.id}
+            id={this.props.post.imageUrl}
             postsarray={this.props.postsarray}
             commentsarray={this.props.post.comments}
             momentdate={this.props.formatdate(`${this.props.post.timestamp}`)}
