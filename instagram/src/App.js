@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import PostContainer from "./components/PostContainer/PostContainer.js";
-import SearchBar from "./components/SearchBar/SearchBar.js";
+import PostsPage from "./components/PostContainer/PostsPage.js";
+import Authenticate from './components/Authentication/Authentication.js'
 import "./App.css";
-import SmartData from "./smart-data.js";
-import moment from "moment";
 import "datejs";
 
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
@@ -22,38 +20,18 @@ import "datejs";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      socialdata: [],
-    };
+    this.state = {};
   }
 
-  componentDidMount = () =>
-    this.setState(currentState => ({
-      socialdata: currentState.socialdata.concat(SmartData)
-    }));
-
-  formatdate = date => {
-    // return moment(Date.parse(date).toString()).fromNow()
-    const a = moment([2017, 6, 14]);
-    return a.from(
-      Date.parse(date)
-      .toString()).toUpperCase();
-  };
-
   
-
-
   render() {
     return (
       <div>
-        <SearchBar />
-        <PostContainer
-          postsarray={this.state.socialdata}
-          formatdate={this.formatdate}
-        />
+        <PostsPage />
       </div>
     );
   }
 }
 
+// export default Authenticate(App);
 export default App;
