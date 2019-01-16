@@ -1,63 +1,21 @@
 import React from "react";
-import CommentSection from "../CommentSection/CommentSection.js";
-import PropTypes from "prop-types";
+import Post from "./Post.js";
 import "./PostContainer.css";
 
-function PostContainer(props) {
+const PostsContainer = props => {
   return (
     <div className="OuterPostContainer">
       {props.postsarray.map((post, index) => (
-        <div key={index} className="WholePost">
-          <div className="Avatar_Username">
-            <img
-              src={post.thumbnailUrl}
-              alt={`${post.username}s avatar thumbnail`}
-              className="Avatar"
-            />
-            <div className="Username">{post.username}</div>
-          </div>
-          <img
-            src={post.imageUrl}
-            alt="main post image"
-            className="PostImage"
-          />
-          <div className="BottomContainer">
-            <div className="Heart_Comment_Likes">
-              <i class="far fa-heart" />
-              <i class="far fa-comment" />
-            </div>
-            <p className='LikesText'>{post.likes} likes</p>
-            <CommentSection postsarray={props.postsarray}
-            commentsarray={post.comments}
-            momentdate={props.formatdate(`${post.timestamp}`)}
-            postindex={index} />
-          </div>
-        </div>
+        <Post
+          postsarray={props.postsarray}
+          key={`${post.username}${index}`}
+          postindex={index}
+          formatdate={props.formatdate}
+          post={post}
+        />
       ))}
     </div>
   );
-}
-
-PostContainer.propTypes = {
-  postsarray: PropTypes.arrayOf(
-    PropTypes.shape({
-      username: PropTypes.string,
-      likes: PropTypes.number,
-      timestamp: PropTypes.string,
-      thumbnailUrl: PropTypes.string,
-      imageUrl: PropTypes.string,
-      comments: PropTypes.arrayOf(
-        PropTypes.shape({
-          username: PropTypes.string,
-          text: PropTypes.string
-        })
-      )
-    })
-  )
 };
 
-PostContainer.defaultProps = {
-  postsarray: [],
-}
-
-export default PostContainer;
+export default PostsContainer;
