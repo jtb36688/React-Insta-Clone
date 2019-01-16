@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PostContainer from './components/PostContainer/PostContainer.js';
-import SearchBar from './components/SearchBar/SearchBar.js';
-import './App.css';
-import SmartData from './smart-data.js'
+import React, { Component } from "react";
+import PostContainer from "./components/PostContainer/PostContainer.js";
+import SearchBar from "./components/SearchBar/SearchBar.js";
+import "./App.css";
+import SmartData from "./smart-data.js";
 import moment from "moment";
 import "datejs";
 
@@ -19,30 +19,44 @@ import "datejs";
 // text:
 // }]
 
-
 class App extends Component {
-  constructor() {
-  super();
-  this.state = {
-    socialdata: SmartData
-
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      socialdata: [],
+      newcomment: ''
+    };
   }
 
-  formatdate = (date) => {
+  componentDidMount = () =>
+    this.setState(currentState => ({
+      socialdata: currentState.socialdata.concat(SmartData)
+    }));
+
+  formatdate = date => {
     // return moment(Date.parse(date).toString()).fromNow()
-    const a = moment([2017, 6, 15])
-    return a.from(Date.parse(date).toString()).toUpperCase();
-      }
+    const a = moment([2017, 6, 14]);
+    return a.from(
+      Date.parse(date)
+      .toString()).toUpperCase();
+  };
+
+  handleChangesComment = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+};
+
 
   render() {
     return (
       <div>
-      <SearchBar />
-      <PostContainer
-      postsarray = {this.state.socialdata}
-      formatdate = {this.formatdate}
-      />
+        <SearchBar />
+        <PostContainer
+          commentSubmit={this.addNewComment}
+          postsarray={this.state.socialdata}
+          formatdate={this.formatdate}
+          newComment={this.state.newcomment}
+          handleChangesComment={this.handleChangesComment}
+        />
       </div>
     );
   }

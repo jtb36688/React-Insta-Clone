@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./PostContainer.css";
 
 function PostContainer(props) {
-  
   return (
     <div className="OuterPostContainer">
       {props.postsarray.map((post, index) => (
@@ -15,32 +14,25 @@ function PostContainer(props) {
               alt={`${post.username}s avatar thumbnail`}
               className="Avatar"
             />
-            <div className='Username'>{post.username}</div>
+            <div className="Username">{post.username}</div>
           </div>
           <img
             src={post.imageUrl}
             alt="main post image"
             className="PostImage"
           />
-          <div className="Heart_Comment_Likes">
-          <i class="far fa-heart"></i>
-          <i class="far fa-comment"></i>
-          </div>
-            {post.likes} likes
-          
-          <CommentSection commentsarray={post.comments} />
-          <p className="MomentDate">{props.formatdate(`${post.timestamp}`)}</p>
-
-          <div className="Input_Elipsis">
-            <form className="CommentsForm">
-              <input
-              className="CommentsInput"
-                type="text"
-                name="titlevalue"
-                placeholder="Add a comment..."
-              />
-            </form>
-            <i />
+          <div className="BottomContainer">
+            <div className="Heart_Comment_Likes">
+              <i class="far fa-heart" />
+              <i class="far fa-comment" />
+            </div>
+            <p className='LikesText'>{post.likes} likes</p>
+            <CommentSection commentsarray={post.comments}
+            momentdate={props.formatdate(`${post.timestamp}`)}
+            newComment={props.newComment}
+            onChange={props.handleChangesComment}
+            commentSubmit={props.commentSubmit}
+            postindex={index} />
           </div>
         </div>
       ))}
@@ -65,5 +57,9 @@ PostContainer.propTypes = {
     })
   )
 };
+
+PostContainer.defaultProps = {
+  postsarray: [],
+}
 
 export default PostContainer;

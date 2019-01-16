@@ -10,7 +10,7 @@ function SearchBar(props) {
         <i className="fab fa-instagram"></i>    
         <h2 className="InstagramLogo">Instagram</h2>
         </div>
-    <form>
+    <form className='SearchForm'>
       <input
         className="SearchInput"
         type="text"

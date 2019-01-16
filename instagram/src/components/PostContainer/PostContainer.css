@@ -35,27 +35,16 @@ font-weight: bold;
 width: 100%;
 }
 
-.MomentDate {
-    color: grey;
-    font-size: 12px;
-    font-weight: bold;
-
-}
-
 .Heart_Comment_Likes {
-
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.Input_Elipsis {
-    
+.LikesText {
+    margin-top: 15px;
+    font-weight: bold;
 }
-
-.CommentsForm {
-    margin-top: 10px;
-}
-
-.CommentsInput {
-    width: 100%;
-    height: 50px;
-    
+.BottomContainer {
+    margin: 10px 2% 0;
 }

@@ -3,20 +3,28 @@ display: flex;
 justify-content: space-between;
 align-items: baseline;
 border-bottom: 1px solid lightgrey;
+padding-bottom: 5px;
 }
 
 .Camera_InstaLogo {
 display: flex;
 width: 18%;
-justify-content: space-between;
+justify-content: space-around;
 align-items: baseline;
 font-size: 25px;
 width: 22%;
 margin: 10px 0;
 }
 
+.SearchForm {
+    width: 25%;
+}
 .SearchInput {
+    width: 100%;
     text-align: center;
+    background-color:#FCFCFD;
+    border: .5px solid lightgrey;
+    height: 25px;
 }
 
 .Compass_Heart_User {
@@ -26,7 +34,7 @@ justify-content: space-between;
 }
 
 .InstagramLogo {
-    padding-left: 10px;
+    padding-left: 7%;
     height: 30px;
     border-left: 1px solid black;
 }
