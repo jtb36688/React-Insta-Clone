@@ -7,9 +7,29 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: []
+      likes: 0
     };
   }
+
+  componentDidMount() {
+    if (localStorage.getItem(this.props.id)) {
+      this.setState({
+        likes: JSON.parse(localStorage.getItem(this.props.id))
+      });
+    } else {
+      this.setState({
+        likes: this.props.post.likes
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(this.props.id, JSON.stringify(this.state.likes));
+  }
+
+  likesfunction = () =>
+    this.setState(currentState => ({ likes: ++currentState.likes }));
+
   render() {
     return (
       <div className="WholePost">
@@ -21,14 +41,21 @@ class Post extends React.Component {
           />
           <div className="Username">{this.props.post.username}</div>
         </div>
-        <img src={this.props.post.imageUrl} alt="main post image" className="PostImage" />
+        <img
+          src={this.props.post.imageUrl}
+          alt="main post image"
+          className="PostImage"
+        />
         <div className="BottomContainer">
           <div className="Heart_Comment_Likes">
             <i class="far fa-heart" />
             <i class="far fa-comment" />
           </div>
-          <p className="LikesText">{this.props.post.likes} likes</p>
+          <button className="LikesText" onClick={this.likesfunction}>
+            {this.state.likes} likes
+          </button>
           <CommentSection
+            id={this.props.id}
             postsarray={this.props.postsarray}
             commentsarray={this.props.post.comments}
             momentdate={this.props.formatdate(`${this.props.post.timestamp}`)}

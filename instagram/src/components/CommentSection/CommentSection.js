@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import CommentInput from "./CommentInput.js";
 import "./CommentSection.css";
 
-
 class CommentSection extends Component {
   constructor(props) {
     super(props);
@@ -13,24 +12,43 @@ class CommentSection extends Component {
     };
   }
 
-  addNewComment = (e, index) => {
-    e.preventDefault();
-    const copyarray = this.state.postsarray.slice();
-    copyarray[index].comments.push({
-      username: 'JTB',
-      text: this.state.newcomment    
-    })
-    this.setState({
-      postsarray: copyarray
-    })
-  };
+  
+  // componentDidMount() {
+  //   if (localStorage.getItem(this.props.momentdate)) {
+  //     this.setState({
+  //       postsarray: JSON.parse(localStorage.getItem(this.props.momentdate))
+  //     });
+  //   } else {
+  //     this.setState({
+  //       postsarray: this.props.postsarray
+  //     });
+  //   }
+  // }
+  
+  // componentDidUpdate() {
+  //   localStorage.setItem(
+  //     this.props.momentdate,
+  //     JSON.stringify(this.state.postsarray)
+  //     );
+  //   }
+    
+    addNewComment = (e, index) => {
+      e.preventDefault();
+      this.setState(currentState => {
+        return {
+        postsarray: currentState.postsarray.slice()[index].comments.push({
+          username: "JTB",
+          text: this.state.newcomment
+        }),
+        newcomment: ""
+        }
+      });
+    };
 
-
-
-  handleChangesComment = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
+    handleChangesComment = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    };
+    
   render() {
     return (
       <div>

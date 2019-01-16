@@ -8,12 +8,13 @@ const PostsContainer = props => {
       {props.postsarray.map((post, index) => (
         <Post
           postsarray={props.postsarray}
-          key={`${post.username}${index}`}
+          key={post.imageUrl}
+          id={post.imageUrl}
           postindex={index}
           formatdate={props.formatdate}
           post={post}
         />
-      ))}
+      )).reverse()}
     </div>
   );
 };
