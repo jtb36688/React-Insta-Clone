@@ -3,42 +3,29 @@ import PropTypes from "prop-types";
 import CommentInput from "./CommentInput.js";
 import "./CommentSection.css";
 
-// Hiarchy----
-
-// App.js=>
-
-// PostContainer.js =>
-
-// CommentSection.js =>
-
-// CommentInput.js =>
 
 class CommentSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentsarray: props.commentsarray,
+      postsarray: props.postsarray,
       newcomment: ""
     };
   }
 
-  addNewComment = e => {
+  addNewComment = (e, index) => {
     e.preventDefault();
-    if (this.state.newcomment === "") {
-      return;
-    } else {
-      this.setState({
-        commentsarray: [
-          ...this.state.commentsarray,
-          {
-            username: 'JTB',
-            text: this.state.newcomment
-          }
-        ],
-        newcomment: ''
-      });
-    }
+    const copyarray = this.state.postsarray.slice();
+    copyarray[index].comments.push({
+      username: 'JTB',
+      text: this.state.newcomment    
+    })
+    this.setState({
+      postsarray: copyarray
+    })
   };
+
+
 
   handleChangesComment = e => {
     this.setState({ [e.target.name]: e.target.value });

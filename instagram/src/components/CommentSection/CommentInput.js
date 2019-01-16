@@ -2,9 +2,10 @@ import React from "react";
 import "./CommentSection.css";
 
 function CommentInput(props) {
+  const postindex = props.postindex;
   return (
     <div className="Input_Elipsis">
-      <form className="CommentsForm" onSubmit={(e) => props.commentSubmit()}>
+      <form className="CommentsForm" onSubmit={(e) => props.commentSubmit(e, postindex)}>
         <input
           value={props.newcomment}
           className="CommentsInput"

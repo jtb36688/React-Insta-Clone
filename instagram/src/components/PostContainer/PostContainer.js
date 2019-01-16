@@ -27,7 +27,8 @@ function PostContainer(props) {
               <i class="far fa-comment" />
             </div>
             <p className='LikesText'>{post.likes} likes</p>
-            <CommentSection commentsarray={post.comments}
+            <CommentSection postsarray={props.postsarray}
+            commentsarray={post.comments}
             momentdate={props.formatdate(`${post.timestamp}`)}
             postindex={index} />
           </div>
