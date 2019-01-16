@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PostsPage from "./components/PostContainer/PostsPage.js";
-import Authenticate from './components/Authentication/Authentication.js'
+// import Authentication from './components/Authentication/Authentication.js'
 import "./App.css";
 import "datejs";
 
@@ -33,5 +33,5 @@ class App extends Component {
   }
 }
 
-// export default Authenticate(App);
+// export default Authentication(App);
 export default App;
