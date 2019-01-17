@@ -2,6 +2,7 @@ import React from "react";
 import CommentSection from "../CommentSection/CommentSection.js";
 import PropTypes from "prop-types";
 import "./PostContainer.css";
+import styled, { css } from "styled-components";
 
 class Post extends React.Component {
   constructor(props) {
@@ -32,28 +33,26 @@ class Post extends React.Component {
 
   render() {
     return (
-      <div className="WholePost">
-        <div className="Avatar_Username">
-          <img
+      <InnerPostContainer>
+        <UserAvatarContainer>
+          <AvatarImage
             src={this.props.post.thumbnailUrl}
             alt={`${this.props.post.username}'s avatar thumbnail`}
-            className="Avatar"
           />
-          <div className="Username">{this.props.post.username}</div>
-        </div>
-        <img
+          {this.props.post.username}
+        </UserAvatarContainer>
+        <MainPostImage
           src={this.props.post.imageUrl}
           alt="main post image"
-          className="PostImage"
         />
-        <div className="BottomContainer">
-          <div className="Heart_Comment_Likes">
+        <CommentsContainer>
+          <IconsContainer>
             <i className="far fa-heart" />
             <i className="far fa-comment" />
-          </div>
-          <button className="LikesText" onClick={this.likesfunction}>
+          </IconsContainer>
+          <LikesButton onClick={this.likesfunction}>
             {this.state.likes} likes
-          </button>
+          </LikesButton>
           <CommentSection
             usernamevalue={this.props.usernamevalue}
             id={this.props.post.imageUrl}
@@ -62,11 +61,53 @@ class Post extends React.Component {
             momentdate={this.props.formatdate(`${this.props.post.timestamp}`)}
             postindex={this.props.postindex}
           />
-        </div>
-      </div>
+        </CommentsContainer>
+      </InnerPostContainer>
     );
   }
 }
+
+const LikesButton = styled.button`
+margin-top: 15px;
+font-weight: bold;
+`
+
+const IconsContainer = styled.div`
+width: 10%;
+display: flex;
+justify-content: space-between;
+`
+
+const CommentsContainer = styled.div`
+margin: 10px 2% 0;
+`
+
+const MainPostImage = styled.img`
+width: 100%;
+`
+
+const AvatarImage = styled.img`
+margin: 0 3%;
+border-top-left-radius: 50% 50%;
+border-top-right-radius: 50% 50%;
+border-bottom-right-radius: 50% 50%;
+border-bottom-left-radius: 50% 50%;
+height: 40px;`
+
+const UserAvatarContainer = styled.div`
+display: flex;
+align-items: center;
+padding: 10px 0;
+font-weight: bold;
+`
+
+const InnerPostContainer = styled.div`
+display: flex;
+flex-direction: column;
+padding: 5px 0;
+border: 1px solid silver;
+margin-top: 50px;
+`
 
 // PostContainer.propTypes = {
 //   postsarray: PropTypes.arrayOf(

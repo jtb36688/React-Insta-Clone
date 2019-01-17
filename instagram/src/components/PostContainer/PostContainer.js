@@ -1,10 +1,11 @@
 import React from "react";
 import Post from "./Post.js";
 import "./PostContainer.css";
+import styled, { css } from "styled-components";
 
 const PostsContainer = props => {
   return (
-    <div className="OuterPostContainer">
+    <WholePostContainer>
       {props.postsarray.map((post, index) => (
         <Post
           postsarray={props.postsarray}
@@ -16,8 +17,13 @@ const PostsContainer = props => {
           usernamevalue={props.usernamevalue}
         />
       )).reverse()}
-    </div>
+    </WholePostContainer>
   );
 };
+
+const WholePostContainer = styled.div`
+margin-top: 50px;
+`
+
 
 export default PostsContainer;
