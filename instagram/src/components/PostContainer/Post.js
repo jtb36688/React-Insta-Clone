@@ -55,6 +55,7 @@ class Post extends React.Component {
             {this.state.likes} likes
           </button>
           <CommentSection
+            usernamevalue={this.props.usernamevalue}
             id={this.props.post.imageUrl}
             postsarray={this.props.postsarray}
             commentsarray={this.props.post.comments}

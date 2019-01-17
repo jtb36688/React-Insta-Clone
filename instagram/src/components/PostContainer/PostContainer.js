@@ -12,6 +12,8 @@ const PostsContainer = props => {
           postindex={index}
           formatdate={props.formatdate}
           post={post}
+          id={post.imageUrl}
+          usernamevalue={props.usernamevalue}
         />
       )).reverse()}
     </div>

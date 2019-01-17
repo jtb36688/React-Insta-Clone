@@ -33,12 +33,12 @@ class CommentSection extends Component {
     }
     
 
-    addNewComment = (e, index) => {
+    addNewComment = e => {
       e.preventDefault();
       this.setState(currentState => {
         return {
         comments: currentState.comments.concat({
-          username: "JTB",
+          username: this.props.usernamevalue,
           text: currentState.newcomment
         }),
         newcomment: ""

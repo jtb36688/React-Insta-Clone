@@ -7,7 +7,7 @@ const Login = props => {
         <div className="UsernameDiv">
           Username:
           <input
-            value={props.usernameinput}
+            value={props.usernamevalue}
             type="text"
             name="usernamevalue"
             onChange={props.handleChanges}
@@ -16,7 +16,7 @@ const Login = props => {
         <div className="PasswordDiv">
           Password:
           <input
-            value={props.passwordinput}
+            value={props.passwordvalue}
             type="text"
             name="passwordvalue"
             onChange={props.handleChanges}

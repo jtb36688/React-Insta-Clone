@@ -5,7 +5,7 @@ function CommentInput(props) {
   const postindex = props.postindex;
   return (
     <div className="Input_Elipsis">
-      <form className="CommentsForm" onSubmit={(e) => props.commentSubmit(e, postindex)}>
+      <form className="CommentsForm" onSubmit={props.commentSubmit}>
         <input
           value={props.newcomment}
           className="CommentsInput"
