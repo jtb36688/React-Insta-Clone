@@ -48,8 +48,8 @@ class Post extends React.Component {
         />
         <div className="BottomContainer">
           <div className="Heart_Comment_Likes">
-            <i class="far fa-heart" />
-            <i class="far fa-comment" />
+            <i className="far fa-heart" />
+            <i className="far fa-comment" />
           </div>
           <button className="LikesText" onClick={this.likesfunction}>
             {this.state.likes} likes

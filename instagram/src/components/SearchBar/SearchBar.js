@@ -20,9 +20,9 @@ function SearchBar(props) {
         />
       </form>
       <div className="Compass_Heart_User">
-        <i class="far fa-compass" />
-        <i class="far fa-heart" />
-        <i class="far fa-user" onClick={props.handleUserClick} />
+        <i className="far fa-compass" />
+        <i className="far fa-heart" />
+        <i className="far fa-user" onClick={props.handleUserClick} />
         <UserDropDown
           handleLogOut={props.handleLogOut}
           userdropdownbool={props.userdropdownbool}

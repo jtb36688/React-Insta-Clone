@@ -6,7 +6,7 @@ const UserDropDown = props => {
     <div className={props.userdropdownbool ? "UserDropDown" : "ClosedDropDown"}>
       <button onClick={props.handleLogOut}>Log Out</button>
       <p>User:<br/><br/>{props.usernamevalue}</p>
-      <i onClick={props.closeUserDropDown} style={{cursor: 'pointer', fontSize: '15px'}} class="fas fa-times"></i>
+      <i onClick={props.closeUserDropDown} style={{cursor: 'pointer', fontSize: '15px'}} className="fas fa-times"></i>
     </div>
   );
 };

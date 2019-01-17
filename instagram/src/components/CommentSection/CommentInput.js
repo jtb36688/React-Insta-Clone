@@ -2,7 +2,6 @@ import React from "react";
 import "./CommentSection.css";
 
 function CommentInput(props) {
-  const postindex = props.postindex;
   return (
     <div className="Input_Elipsis">
       <form className="CommentsForm" onSubmit={props.commentSubmit}>
@@ -16,7 +15,7 @@ function CommentInput(props) {
         />
       </form>
       <button className="ElipsisButton">
-        <i class="fas fa-ellipsis-h" />
+        <i className="fas fa-ellipsis-h" />
       </button>
     </div>
   );
