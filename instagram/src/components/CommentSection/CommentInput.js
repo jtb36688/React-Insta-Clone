@@ -1,24 +1,43 @@
 import React from "react";
 import "./CommentSection.css";
+import styled, { css } from "styled-components";
 
 function CommentInput(props) {
   return (
-    <div className="Input_Elipsis">
-      <form className="CommentsForm" onSubmit={props.commentSubmit}>
-        <input
+    <InputContainer>
+      <form onSubmit={props.commentSubmit}>
+        <CommentInputBox
           value={props.newcomment}
-          className="CommentsInput"
           type="text"
           name="newcomment"
           placeholder="Add a comment..."
           onChange={props.onChange}
         />
       </form>
-      <button className="ElipsisButton">
+      <EllipsisButton>
         <i className="fas fa-ellipsis-h" />
-      </button>
-    </div>
+      </EllipsisButton>
+    </InputContainer>
   );
 }
+
+
+const InputContainer = styled.div`
+margin-top: 10px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+`;
+
+const CommentInputBox = styled.input`
+  width: 85%;
+  height: 50px;
+  border: none;
+  font-weight: bold;
+`;
+
+const EllipsisButton = styled.p`
+  font-size: 15px;
+`;
 
 export default CommentInput;

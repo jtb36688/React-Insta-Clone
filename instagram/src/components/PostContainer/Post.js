@@ -67,6 +67,8 @@ class Post extends React.Component {
   }
 }
 
+
+
 const LikesButton = styled.button`
 margin-top: 15px;
 font-weight: bold;
