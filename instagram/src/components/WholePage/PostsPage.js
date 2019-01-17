@@ -22,7 +22,8 @@ class PostsPage extends Component {
     super(props);
     this.state = {
       socialdata: [],
-      userdropdown: false
+      searchdata: "",
+      searchfield: ""
     };
   }
 
@@ -42,18 +43,45 @@ class PostsPage extends Component {
       userdropdown: !this.state.userdropdown
     });
 
+  handleSearch = e => {
+    e.preventDefault();
+    this.setState(currentState => {
+      return {
+        socialdata: currentState.socialdata.filter(posts => {
+          return (
+            posts.username.toLowerCase().indexOf(this.state.searchfield) !== -1
+          );
+        })
+      };
+    });
+  };
+
+  searchChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+      socialdata: SmartData
+    });
+  };
+
   render() {
     return (
       <div>
         <SearchBar
+          handleSearch={this.handleSearch}
           handleUserClick={this.handleUserClick}
           handleLogOut={this.props.handleLogOut}
           userdropdownbool={this.state.userdropdown}
           usernamevalue={this.props.usernamevalue}
+          searchChange={this.searchChange}
+          searchfield={this.state.searchfield}
         />
         <PostContainer
           usernamevalue={this.props.usernamevalue}
-          postsarray={this.state.socialdata}
+          postsarray={
+            this.state.searchdata
+              ? this.state.searchdata
+              : this.state.socialdata
+          }
           formatdate={this.formatdate}
         />
       </div>

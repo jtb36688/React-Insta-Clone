@@ -11,12 +11,14 @@ function SearchBar(props) {
         <i className="fab fa-instagram" />
         <h2 className="InstagramLogo">Instagram</h2>
       </div>
-      <form className="SearchForm">
+      <form onSubmit={props.handleSearch} className="SearchForm">
         <input
+          value={props.searchfield}
           className="SearchInput"
           type="text"
-          name="titlevalue"
+          name="searchfield"
           placeholder="Search"
+          onChange={props.searchChange}
         />
       </form>
       <div className="Compass_Heart_User">
