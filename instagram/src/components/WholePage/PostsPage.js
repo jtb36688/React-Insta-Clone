@@ -49,7 +49,7 @@ class PostsPage extends Component {
       return {
         socialdata: currentState.socialdata.filter(posts => {
           return (
-            posts.username.toLowerCase().indexOf(this.state.searchfield) !== -1
+            posts.username.toLowerCase().indexOf(this.state.searchfield.toLowerCase()) !== -1
           );
         })
       };
