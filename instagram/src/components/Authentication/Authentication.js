@@ -1,6 +1,6 @@
 import React from "react";
 
-const Authentication = App => Login =>
+const Authentication = PostsPage => Login =>
   class extends React.Component {
     constructor(props) {
       super(props);
@@ -57,7 +57,7 @@ const Authentication = App => Login =>
 
     conditionalRender = () => {
       if (this.state.loggedIn) {
-        return <App 
+        return <PostsPage 
         usernamevalue={this.state.usernamevalue}
         handleLogOut={this.handleLogOut}/>
       } else {

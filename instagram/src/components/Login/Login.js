@@ -25,7 +25,7 @@ const Login = props => {
                 <input
                   className="PasswordInput"
                   value={props.passwordvalue}
-                  type="text"
+                  type="password"
                   name="passwordvalue"
                   onChange={props.handleChanges}
                 />

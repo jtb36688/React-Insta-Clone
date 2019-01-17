@@ -3,37 +3,101 @@ import React from "react";
 // add value and onChange to input field
 import "./SearchBar.css";
 import UserDropDown from "./UserDropDown.js";
+import styled, { css } from "styled-components";
 
 function SearchBar(props) {
   return (
-    <div className={props.userdropdownbool ? "WholeSearchBarCollapsed" : "WholeSearchBar"}>
-      <div className="Camera_InstaLogo">
+    <SearchBarContainer togglecollapse={props.userdropdownbool}>
+      <CameraLogoContainer>
         <i className="fab fa-instagram" />
-        <h2 className="InstagramLogo">Instagram</h2>
-      </div>
-      <form onSubmit={props.handleSearch} className="SearchForm">
-        <input
+        <H2 InstagramLogo>Instagram</H2>
+      </CameraLogoContainer>
+      <SearchForm onSubmit={props.handleSearch}>
+        <SearchInput
           value={props.searchfield}
-          className="SearchInput"
           type="text"
           name="searchfield"
           placeholder="Search"
           onChange={props.searchChange}
         />
-      </form>
-      <div className="Compass_Heart_User">
+      </SearchForm>
+      <RightIconsContainer>
         <i className="far fa-compass" />
         <i className="far fa-heart" />
-        <i className="far fa-user" onClick={props.handleUserClick} />
+        <i
+          className="far fa-user"
+          style={{ color: "orange" }}
+          onClick={props.handleUserClick}
+        />
         <UserDropDown
-          handleLogOut={props.handleLogOut}
+          handleLogOut={props.handleLogOut}s
           userdropdownbool={props.userdropdownbool}
           usernamevalue={props.usernamevalue}
           closeUserDropDown={props.handleUserClick}
         />
-      </div>
-    </div>
+      </RightIconsContainer>
+    </SearchBarContainer>
   );
 }
+
+const RightIconsContainer = styled.div`
+  display: flex;
+  width: 17%;
+  justify-content: space-between;
+`;
+
+const SearchInput = styled.input`
+  width: 100%;
+  text-align: center;
+  background-color: #fcfcfd;
+  border: 0.5px solid lightgrey;
+  height: 25px;
+`;
+
+const SearchForm = styled.form`
+  width: 25%;
+`;
+
+const H2 = styled.h2`
+  ${props =>
+    props.InstagramLogo &&
+    css`
+      padding-left: 7%;
+      height: 30px;
+      border-left: 1px solid black;
+    `}
+`;
+
+const SearchBarContainer = styled.div`
+  ${props =>
+    props.togglecollapse
+      ? css`
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          border-bottom: 1px solid lightgrey;
+          padding-bottom: 5px;
+          position: relative;
+          margin-bottom: 75px;
+        `
+      : css`
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          border-bottom: 1px solid lightgrey;
+          padding-bottom: 5px;
+          position: relative;
+        `}
+`;
+
+const CameraLogoContainer = styled.div`
+  display: flex;
+  width: 18%;
+  justify-content: space-around;
+  align-items: baseline;
+  font-size: 25px;
+  width: 22%;
+  margin: 10px 0;
+`;
 
 export default SearchBar;

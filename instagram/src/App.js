@@ -5,6 +5,7 @@ import "./App.css";
 import "datejs";
 import Login from "./components/Login/Login.js";
 
+
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
 // comments is an array of objects with keys: username, text
 
@@ -27,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <PostsPage
+        <ConditionalView
           usernamevalue={this.props.usernamevalue}
           handleLogOut={this.props.handleLogOut}
         />
@@ -37,4 +38,6 @@ class App extends Component {
 }
 
 // export default App;
-export default Authentication(App)(Login);
+const ConditionalView = Authentication(PostsPage)(Login);
+
+export default App;
