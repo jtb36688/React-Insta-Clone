@@ -1,6 +1,7 @@
 import React from "react";
 import "./CommentSection.css";
 import styled, { css } from "styled-components";
+import PropTypes from "prop-types"
 
 function CommentInput(props) {
   return (
@@ -21,6 +22,11 @@ function CommentInput(props) {
   );
 }
 
+CommentInput.propTypes = {
+newcomment: PropTypes.string,
+onChange: PropTypes.func,
+commentSubmit: PropTypes.func
+}
 
 const InputContainer = styled.div`
 margin-top: 10px;
@@ -36,8 +42,12 @@ const CommentInputBox = styled.input`
   font-weight: bold;
 `;
 
-const EllipsisButton = styled.p`
+const EllipsisButton = styled.button`
+background-color: white;
+border: none;
+i {
   font-size: 15px;
+}
 `;
 
 export default CommentInput;

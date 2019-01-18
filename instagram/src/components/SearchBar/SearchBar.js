@@ -1,6 +1,5 @@
 import React from "react";
-// add onSubmit to form tag
-// add value and onChange to input field
+import PropTypes from "prop-types";
 import "./SearchBar.css";
 import UserDropDown from "./UserDropDown.js";
 import styled, { css } from "styled-components";
@@ -38,6 +37,20 @@ function SearchBar(props) {
       </RightIconsContainer>
     </SearchBarContainer>
   );
+}
+
+
+// userdropdown 4 props
+
+
+SearchBar.propTypes = {
+  userdropdownbool: PropTypes.bool,
+  searchfield: PropTypes.string,
+  usernamevalue: PropTypes.string,
+  handleSearch: PropTypes.func,
+  handleUserClick: PropTypes.func,
+  handleLogOut: PropTypes.func,
+  handleUserClick: PropTypes.func,
 }
 
 const RightIconsContainer = styled.div`

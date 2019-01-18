@@ -3,6 +3,7 @@ import PostContainer from "../PostContainer/PostContainer.js";
 import SearchBar from "../SearchBar/SearchBar.js";
 import SmartData from "../../smart-data.js";
 import moment from "moment";
+import PropTypes from "prop-types";
 
 
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
@@ -23,7 +24,6 @@ class PostsPage extends Component {
     super(props);
     this.state = {
       socialdata: [],
-      searchdata: "",
       searchfield: ""
     };
   }
@@ -78,16 +78,17 @@ class PostsPage extends Component {
         />
         <PostContainer
           usernamevalue={this.props.usernamevalue}
-          postsarray={
-            this.state.searchdata
-              ? this.state.searchdata
-              : this.state.socialdata
-          }
+          postsarray={this.state.socialdata}
           formatdate={this.formatdate}
         />
       </div>
     );
   }
+}
+// searchbar 7 props Postcontainer 3 props
+PostsPage.propTypes = {
+  usernamevalue: PropTypes.string,
+  handleLogOut: PropTypes.func,
 }
 
 export default PostsPage;

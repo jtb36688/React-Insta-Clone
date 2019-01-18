@@ -56,18 +56,16 @@ class CommentSection extends Component {
           {this.state.comments.map(({ username, text }, commentindex) => (
             <SingleComment key={commentindex}>
               <p>
-                <span className="Username">{username}</span>
+                <Username>{username}</Username>
                 {text}
               </p>
             </SingleComment>
           ))}
         </CommentsList>
         <MomentDate>{this.props.momentdate}</MomentDate>
-
           <CommentInput
             newcomment={this.state.newcomment}
             onChange={this.handleChangesComment}
-            postindex={this.props.postindex}
             commentSubmit={this.addNewComment}
           />
 
@@ -76,9 +74,21 @@ class CommentSection extends Component {
   }
 }
 
+CommentSection.propTypes = {
+  commentsarray: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string,
+      text: PropTypes.string
+    })
+  ),
+  momentdate: PropTypes.string,
+  usernamevalue: PropTypes.string,
+  id: PropTypes.string
+}
 
-
-
+const Username = styled.span`
+margin-right: 5px
+font-weight: bold`
 
 
 const MomentDate = styled.p`

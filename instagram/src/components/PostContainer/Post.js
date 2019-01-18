@@ -55,11 +55,9 @@ class Post extends React.Component {
           </LikesButton>
           <CommentSection
             usernamevalue={this.props.usernamevalue}
-            id={this.props.post.imageUrl}
-            postsarray={this.props.postsarray}
+            id={this.props.id}
             commentsarray={this.props.post.comments}
             momentdate={this.props.formatdate(`${this.props.post.timestamp}`)}
-            postindex={this.props.postindex}
           />
         </CommentsContainer>
       </InnerPostContainer>
@@ -67,7 +65,26 @@ class Post extends React.Component {
   }
 }
 
+// CommentSection 4 props
 
+Post.propTypes = {
+  post: PropTypes.shape({
+    username: PropTypes.string,
+    likes: PropTypes.number,
+    timestamp: PropTypes.string,
+    thumbnailUrl: PropTypes.string,
+    imageUrl: PropTypes.string,
+    comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        username: PropTypes.string,
+        text: PropTypes.string
+      })
+    )
+  }),
+  formatdate: PropTypes.func,
+  id: PropTypes.string,
+  usernamevalue: PropTypes.string
+};
 
 const LikesButton = styled.button`
 margin-top: 15px;
@@ -111,23 +128,6 @@ border: 1px solid silver;
 margin-top: 50px;
 `
 
-// PostContainer.propTypes = {
-//   postsarray: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       username: PropTypes.string,
-//       likes: PropTypes.number,
-//       timestamp: PropTypes.string,
-//       thumbnailUrl: PropTypes.string,
-//       imageUrl: PropTypes.string,
-//       comments: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           username: PropTypes.string,
-//           text: PropTypes.string
-//         })
-//       )
-//     })
-//   )
-// };
 
 // PostContainer.defaultProps = {
 //   postsarray: [],

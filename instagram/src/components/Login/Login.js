@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.css";
+import PropTypes from 'prop-types';
 
 const Login = props => {
   return (
@@ -40,5 +41,13 @@ const Login = props => {
     </div>
   );
 };
+
+Login.propTypes = {
+  submitLogin: PropTypes.func,
+  usernamevalue: PropTypes.string,
+  passwordvalue: PropTypes.string,
+  handleChanges: PropTypes.func,
+}
+
 
 export default Login;

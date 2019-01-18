@@ -69,6 +69,8 @@ const Authentication = PostsPage => Login =>
       }
     };
 
+
+
     render() {
       return (
         this.conditionalRender()
@@ -77,5 +79,7 @@ const Authentication = PostsPage => Login =>
 
 
   };
+
+// Authentication does not receive any props because it is the highest level component
 
 export default Authentication;

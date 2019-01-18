@@ -4,6 +4,7 @@ import Authentication from "./components/Authentication/Authentication.js";
 import "./App.css";
 import "datejs";
 import Login from "./components/Login/Login.js";
+import PropTypes from 'prop-types'
 
 
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
@@ -37,7 +38,13 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  usernamevalue: PropTypes.string,
+  handleLogOut: PropTypes.func
+}
 // export default App;
 const ConditionalView = Authentication(PostsPage)(Login);
+
+
 
 export default App;

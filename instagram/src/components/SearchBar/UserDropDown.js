@@ -1,6 +1,7 @@
 import React from "react";
 import "../SearchBar/SearchBar.css";
 import styled, { css } from "styled-components";
+import PropTypes from "prop-types"
 
 const UserDropDown = props => {
   return (
@@ -20,6 +21,13 @@ const UserDropDown = props => {
     </DropDownContainer>
   );
 };
+
+UserDropDown.propTypes = {
+  userdropdownbool: PropTypes.bool,
+  handleLogOut: PropTypes.func,
+  usernamevalue: PropTypes.string,
+  closeUserDropDown: PropTypes.func,
+}
 
 const LogOutButton = styled.button`
   background-color: #8b9dc3;
