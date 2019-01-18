@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./SearchBar.css";
 import UserDropDown from "./UserDropDown.js";
 import styled, { css } from "styled-components";
 
@@ -25,7 +24,7 @@ function SearchBar(props) {
         <i className="far fa-heart" />
         <i
           className="far fa-user"
-          style={{ color: "orange" }}
+          style={{ color: "orange", cursor: "pointer"}}
           onClick={props.handleUserClick}
         />
         <UserDropDown

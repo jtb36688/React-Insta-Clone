@@ -1,5 +1,4 @@
 import React from "react";
-import "./CommentSection.css";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types"
 

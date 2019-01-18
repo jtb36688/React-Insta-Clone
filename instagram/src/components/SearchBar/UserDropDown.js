@@ -1,5 +1,4 @@
 import React from "react";
-import "../SearchBar/SearchBar.css";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types"
 

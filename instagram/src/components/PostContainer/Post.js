@@ -1,7 +1,6 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection.js";
 import PropTypes from "prop-types";
-import "./PostContainer.css";
 import styled, { css } from "styled-components";
 
 class Post extends React.Component {
