@@ -1,0 +1,78 @@
+.WholeSearchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.WholeSearchBarCollapsed {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 5px;
+    position: relative;
+    margin-bottom: 75px;
+  }
+
+
+.Camera_InstaLogo {
+  display: flex;
+  width: 18%;
+  justify-content: space-around;
+  align-items: baseline;
+  font-size: 25px;
+  width: 22%;
+  margin: 10px 0;
+}
+
+.SearchForm {
+  width: 25%;
+}
+.SearchInput {
+  width: 100%;
+  text-align: center;
+  background-color: #fcfcfd;
+  border: 0.5px solid lightgrey;
+  height: 25px;
+}
+
+.Compass_Heart_User {
+  display: flex;
+  width: 17%;
+  justify-content: space-between;
+}
+
+.InstagramLogo {
+  padding-left: 7%;
+  height: 30px;
+  border-left: 1px solid black;
+}
+
+.fa-user {
+  cursor: pointer;
+}
+
+.UserDropDown {
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  width: 250px;
+  top: 60px;
+  left: 68.8%;
+  background-color: lightgrey;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ClosedDropDown {
+  display: none;
+}
+
+.UserDropDown button {
+  background-color: #8b9dc3;
+  color: white;
+}

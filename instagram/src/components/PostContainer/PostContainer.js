@@ -1,29 +1,49 @@
 import React from "react";
-import CommentSection from "../CommentSection/CommentSection.js";
+import Post from "./Post.js";
+import styled, { css } from "styled-components";
+import PropTypes from "prop-types"
 
-function PostContainer(props) {
+const PostsContainer = props => {
   return (
-    <div>
-      {props.postsarray.map((post, index) => (
-        <div>
-          <img
-            src={post.thumbnailUrl}
-            alt={`${post.username}s avatar thumbnail`}
-          />
-          <h3>
-            {index} :{post.username} - {post.likes} likes,
-          </h3>
-          <p>{post.timestamp}</p>
-
-          <CommentSection commentsarray={post.comments} />
-          <form>
-            <input type="text" name="titlevalue" placeholder="Enter New Comment" />
-          </form>
-          <br/><br/><br/>
-        </div>
-      ))}
-    </div>
+    <WholePostContainer>
+      {props.postsarray.map(post => (
+        <Post
+          key={post.imageUrl}
+          formatdate={props.formatdate}
+          post={post}
+          id={post.imageUrl}
+          usernamevalue={props.usernamevalue}
+        />
+      )).reverse()}
+    </WholePostContainer>
   );
-}
+};
 
-export default PostContainer;
+// Post 4 props
+
+PostsContainer.propTypes = {
+  postsarray: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string,
+      likes: PropTypes.number,
+      timestamp: PropTypes.string,
+      thumbnailUrl: PropTypes.string,
+      imageUrl: PropTypes.string,
+      comments: PropTypes.arrayOf(
+        PropTypes.shape({
+          username: PropTypes.string,
+          text: PropTypes.string
+        })
+      )
+    })
+  ),
+  usernamevalue: PropTypes.string,
+  formatdate: PropTypes.func,
+};
+
+const WholePostContainer = styled.div`
+margin-top: 50px;
+`
+
+
+export default PostsContainer;

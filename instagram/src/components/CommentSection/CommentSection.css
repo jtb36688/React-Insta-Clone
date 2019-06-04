@@ -1,0 +1,46 @@
+.CommentsList {
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+.SingleComment {
+    margin: 20px 0;
+}
+
+.Input_Elipsis {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.CommentsForm {
+    
+}
+
+.CommentsInput {
+    width: 85%;
+    height: 50px;
+    border: none;
+font-weight: bold;
+    
+}
+
+.ElipsisButton {
+    border: none;
+    background-color: white;
+    
+}
+
+.ElipsisButton i {
+    font-size: 15px;
+}
+
+.MomentDate {
+    margin-top: 30px;
+    color: grey;
+    font-size: 12px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: .5px solid lightgrey;
+}

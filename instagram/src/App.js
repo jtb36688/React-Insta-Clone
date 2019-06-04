@@ -1,32 +1,50 @@
-import React, { Component } from 'react';
-import PostContainer from './components/PostContainer/PostContainer.js';
-import SearchBar from './components/SearchBar/SearchBar.js';
-import './App.css';
-import SmartData from './smart-data.js'
+import React, { Component } from "react";
+import PostsPage from "./components/WholePage/PostsPage.js";
+import Authentication from "./components/Authentication/Authentication.js";
+import "./App.css";
+import "datejs";
+import Login from "./components/Login/Login.js";
+import PropTypes from 'prop-types'
+
+
 // this is an array of 3 objects with keys: username, thumbnailUrl, imageUrl, likes, timestamp, and comments
 // comments is an array of objects with keys: username, text
-console.log(SmartData);
+
+// username:
+// thumbnailUrl:
+// imageUrl:
+// likes:
+// timestamp:
+// comments: [...
+// {username:
+// text:
+// }]
 
 class App extends Component {
-  constructor() {
-  super();
-  this.state = {
-    socialdata: SmartData
-
-  };
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
-
 
   render() {
     return (
       <div>
-      <SearchBar />
-      <PostContainer
-      postsarray = {this.state.socialdata} 
-      />
+        <ConditionalView
+          usernamevalue={this.props.usernamevalue}
+          handleLogOut={this.props.handleLogOut}
+        />
       </div>
     );
   }
 }
+
+App.propTypes = {
+  usernamevalue: PropTypes.string,
+  handleLogOut: PropTypes.func
+}
+// export default App;
+const ConditionalView = Authentication(PostsPage)(Login);
+
+
 
 export default App;

@@ -1,0 +1,94 @@
+.LoginContainer {
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 100%;
+}
+
+.LoginContainer {
+  font-family: Neue Helvetica;
+  font-size: 18px;
+}
+
+.LoginContainer h1 {
+  font-family: Verdana;
+  font-size: 28px;
+}
+
+.LoginForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 150px;
+  border: 1px solid #8b9dc3;
+}
+
+.UsernameInput {
+  margin-left: 20px;
+  border: 0;
+  background-color: #8b9dc3;
+  color: white;
+  height: 40px;
+  border-radius: 3px;
+  text-align: center;
+  width: 60%;
+  font-weight: bold;
+}
+
+.PasswordInput {
+  margin-left: 20px;
+  border: 0;
+  background-color: #8b9dc3;
+  color: white;
+  height: 40px;
+  border-radius: 3px;
+  text-align: center;
+  width: 60%;
+  font-weight: bold;
+}
+
+.LoginDialog {
+  height: 500px;
+  border-radius: 5px;
+}
+
+.InputsDiv {
+  height: 100%;
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.InputsButtonDiv {
+  display: flex;
+  height: 35%;
+  width: 65%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LoginTitle {
+}
+
+.UsernameDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.PasswordDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.LoginButton {
+  display: block;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+  background-color: #3b5998;
+}
